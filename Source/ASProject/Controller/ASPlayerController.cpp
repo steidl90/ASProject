@@ -6,4 +6,5 @@
 AASPlayerController::AASPlayerController(const FObjectInitializer& ObjectInitializer)
 	:Super(ObjectInitializer)
 {
+
 }
