@@ -11,4 +11,5 @@ AASGameModeBase::AASGameModeBase(const FObjectInitializer& ObjectInitializer)
 {
 	DefaultPawnClass = AASPlayerCharacter::StaticClass();
 	PlayerControllerClass = AASPlayerController::StaticClass();
+
 }
