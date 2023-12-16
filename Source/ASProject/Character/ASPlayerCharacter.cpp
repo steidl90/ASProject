@@ -8,6 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "Animation/AnimInstance.h"
 
 // Sets default values
 AASPlayerCharacter::AASPlayerCharacter(const FObjectInitializer& ObjectInitializer)
@@ -58,6 +59,12 @@ AASPlayerCharacter::AASPlayerCharacter(const FObjectInitializer& ObjectInitializ
 		{
 			Mesh->SetSkeletalMesh(MashAsset.Object);
 		}
+
+		static ConstructorHelpers::FObjectFinder<UClass> Anim(TEXT("/Game/PlayerCharacter/Animation/ABP_PlayerCharacter.ABP_PlayerCharacter_C"));
+		if (true == Anim.Succeeded())
+		{
+			Mesh->SetAnimInstanceClass(Anim.Object);
+		}
 	}
 
 	{
@@ -90,6 +97,7 @@ void AASPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	
 }
 
 void AASPlayerCharacter::SetSpringArmLength(float InLength)

@@ -6,6 +6,11 @@
 #include "GameFramework/PlayerController.h"
 #include "ASPlayerController.generated.h"
 
+class UInputMappingContext;
+class UInputAction;
+
+struct FInputActionInstance;
+
 /**
  * 
  */
@@ -16,5 +21,19 @@ class ASPROJECT_API AASPlayerController : public APlayerController
 	
 public:
 	AASPlayerController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+
+private:
+	virtual void SetupInputComponent() override;
+
+private:
+	UPROPERTY()
+	UInputMappingContext*	IMCPlayerInput;
+
+	UPROPERTY()
+	TObjectPtr<UInputAction>			MoveAction;
+
+public:
+	UFUNCTION()
+	void Test(const FInputActionInstance& InInstance);
 
 };
